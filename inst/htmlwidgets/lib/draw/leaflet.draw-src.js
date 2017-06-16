@@ -437,9 +437,9 @@ L.Draw.Feature = L.Handler.extend({
 	_fireCreatedEvent: function (layer) {
 		this._map.fire(L.Draw.Event.CREATED, { layer: layer, layerType: this.type });
 		popup = new L.Popup();
-		content = "Input information by User <p> <input type='text'/><p><p><button id='submit' type='button'>Submit</button>";
-
-    layer.on('click', function(e){
+		content = "Input information <p> <input type='text' autocomplete='off'/><p><p><button id='submit' type='button' onclick='Shiny.onInputChange(\"button_click\",  Math.random())'>Submit</button>";
+   
+	layer.on('click', function(e){
 
        var bounds = layer.getBounds();
         popup.setLatLng(bounds.getCenter());
