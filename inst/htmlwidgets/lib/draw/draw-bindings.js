@@ -100,6 +100,9 @@ LeafletWidget.methods.addDrawToolbar = function(targetLayerId, targetGroup, opti
           'feature_type' : e.layerType,
           'userinput' :  "",
           'winter' : "" 
+          
+          
+          
         }
       };
 
