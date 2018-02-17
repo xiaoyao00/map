@@ -99,8 +99,18 @@ LeafletWidget.methods.addDrawToolbar = function(targetLayerId, targetGroup, opti
           '_leaflet_id' : featureId,
           'feature_type' : e.layerType,
           'userinput' :  "",
-          'winter' : "" 
-        }
+          'gender' : "",
+          'age': "",
+          'organization':"",
+          'orgWeb':"",
+          'orgcontact':"",
+          'event':"",
+          'time':"",
+          'photo':"<button id='showpic' class='' type='button' onclick='showpic();'>Show</button>",
+          'web':"",
+          'comments':"",
+          'pid':""
+          }
       };
 
       // circles are just Points and toGeoJSON won't store radius by default
@@ -110,7 +120,7 @@ LeafletWidget.methods.addDrawToolbar = function(targetLayerId, targetGroup, opti
       }
 
       if (!HTMLWidgets.shinyMode) return;
-
+    
       Shiny.onInputChange(map.id+'_draw_new_feature',
         layer.toGeoJSON());
       Shiny.onInputChange(map.id+'_draw_all_features',
@@ -138,6 +148,8 @@ LeafletWidget.methods.addDrawToolbar = function(targetLayerId, targetGroup, opti
         }
         layer.feature.properties._leaflet_id = featureId;
         layer.feature.properties.layerId = layer.options.layerId;
+        //layer.feature.properties.userinput = "test";
+        
         if(typeof layer.getRadius === 'function') {
           layer.feature.properties.radius = layer.getRadius();
         }
